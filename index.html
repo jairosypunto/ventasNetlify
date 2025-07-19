@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda de Tecnología - Facturación</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <i class="fas fa-laptop-code"></i>
+        <h1>JairoTech</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li>
+            <a href="#" id="cart-toggle">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Productos y Servicios Tecnológicos</h2>
+        <p>
+          Calidad y garantía en todos nuestros productos y servicios técnicos
+        </p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/573016173378" class="btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="mailto:jairosypunto@gmail.com" class="btn email-btn">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+        </div>
+      </section>
+
+      <section id="productos" class="products">
+        <h2>Nuestros Productos</h2>
+        <div class="product-grid" id="product-container">
+          <!-- Los productos se cargarán dinámicamente con JS -->
+        </div>
+      </section>
+
+      <section id="servicios" class="services">
+        <h2>Servicios Técnicos</h2>
+        <div class="service-grid" id="service-container">
+          <!-- Los servicios se cargarán dinámicamente con JS -->
+        </div>
+      </section>
+
+      <section id="contacto" class="contact">
+        <h2>Contacto Directo</h2>
+        <div class="contact-methods">
+          <div class="contact-card">
+            <i class="fab fa-whatsapp"></i>
+            <h3>WhatsApp</h3>
+            <p>3016173378</p>
+            <a href="https://wa.me/573016173378" class="btn whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> Chatear ahora
+            </a>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Correo Electrónico</h3>
+            <p>jairosypunto@gmail.com</p>
+            <a href="mailto:jairosypunto@gmail.com" class="btn email-btn">
+              <i class="fas fa-envelope"></i> Enviar email
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Carrito de compras -->
+    <div id="cart-sidebar" class="cart-sidebar">
+      <div class="cart-header">
+        <h3>Tu Carrito</h3>
+        <button id="close-cart">&times;</button>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <!-- Los items del carrito se cargarán dinámicamente -->
+      </div>
+      <div class="cart-total">
+        <p>Subtotal: <span id="cart-subtotal">$0</span></p>
+        <p>IVA (19%): <span id="cart-tax">$0</span></p>
+        <p>Total: <span id="cart-total">$0</span></p>
+        <button id="checkout-btn" class="btn">Finalizar Compra</button>
+      </div>
+    </div>
+
+    <!-- Modal de factura -->
+    <div id="invoice-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Factura de Venta</h3>
+          <button id="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="invoice-content">
+            <!-- Contenido de la factura se generará aquí -->
+          </div>
+          <div class="invoice-actions">
+            <button id="send-whatsapp" class="btn whatsapp-btn">
+              <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+            </button>
+            <button id="send-email" class="btn email-btn">
+              <i class="fas fa-envelope"></i> Enviar por Email
+            </button>
+            <button id="print-invoice" class="btn">
+              <i class="fas fa-print"></i> Imprimir Factura
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-contact">
+          <h3>Contacto</h3>
+          <p><i class="fab fa-whatsapp"></i> 3016173378</p>
+          <p><i class="fas fa-envelope"></i> jairosypunto@gmail.com</p>
+        </div>
+        <div class="footer-links">
+          <h3>Enlaces</h3>
+          <ul>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 JairoTech. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
