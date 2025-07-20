@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Disco Duro SSD 500GB",
       description:
         "Unidad de estado sólido de alta velocidad para mejorar el rendimiento de tu equipo.",
-      price: 210000,
+      price: 250000,
       image:
         "https://images.unsplash.com/photo-1581349485608-9469926a8e5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Memoria RAM 8GB DDR4",
       description:
         "Módulo de memoria RAM para aumentar la capacidad de tu computadora.",
-      price: 60000,
+      price: 290000,
       image:
         "https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Tarjeta Gráfica GTX 1660",
       description:
         "Tarjeta gráfica para gaming y edición de video de alto rendimiento.",
-      price: 195000,
+      price: 350000,
       image:
         "https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
       id: 4,
       name: "Teclado Mecánico Gaming",
       description: "Teclado con switches mecánicos y retroiluminación RGB.",
-      price: 210000,
+      price: 75000,
       image:
         "https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Mouse Inalámbrico",
       description:
         "Mouse ergonómico con conexión inalámbrica y 6 botones programables.",
-      price: 65000,
+      price: 35000,
       image:
         "https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: 'Monitor 24" Full HD',
       description:
         "Monitor LED con resolución Full HD y tiempo de respuesta 1ms.",
-      price: 604000,
+      price: 700000,
       image:
         "https://images.unsplash.com/photo-1546538915-a9e2c8d8a7c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Instalación de Hardware",
       description:
         "Instalación profesional de componentes de hardware en tu equipo.",
-      price: 30000,
+      price: 50000,
       image:
         "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Mantenimiento Preventivo",
       description:
         "Limpieza y mantenimiento para prolongar la vida útil de tus equipos.",
-      price: 40000,
+      price: 60000,
       image:
         "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Reparación de Computadoras",
       description:
         "Diagnóstico y reparación de problemas de hardware y software.",
-      price: 70000,
+      price: 60000,
       image:
         "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     },
@@ -209,9 +209,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const total = subtotal + tax;
 
     // Actualizar UI
-    cartSubtotal.textContent = "$${subtotal.toFixed(2)}";
-    cartTax.textContent = "$${tax.toFixed(2)}";
-    cartTotal.textContent = "$${total.toFixed(2)}";
+    cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+    cartTax.textContent = `$${tax.toFixed(2)}`;
+    cartTotal.textContent = `$${total.toFixed(2)}`;
     cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     // Guardar en localStorage
@@ -392,22 +392,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Enviar factura por WhatsApp
     sendWhatsappBtn.addEventListener("click", () => {
       const invoice = generateInvoice();
-      let message = "*Factura ${invoice.invoiceNumber} - JairoTech*%0A%0A";
-      message += "*Fecha:* ${invoice.invoiceDate}%0A%0A";
-      message += "*Detalle de la compra:*%0A%0A";
+      let message = `*Factura ${invoice.invoiceNumber} - JairoTech*%0A%0A`;
+      message += `*Fecha:* ${invoice.invoiceDate}%0A%0A`;
+      message += `*Detalle de la compra:*%0A%0A`;
 
       invoice.items.forEach((item) => {
-        message +=
-          -"${item.name} (${item.quantity} x $${item.price}) = $${(item.price * item.quantity).toFixed(2)}%0A";
+        message += `- ${item.name} (${item.quantity} x $${item.price}) = $${(
+          item.price * item.quantity
+        ).toFixed(2)}%0A`;
       });
 
-      message += "%0A*Subtotal:* $${invoice.subtotal.toFixed(2)}%0A";
-      message += "*IVA (19%):* $${invoice.tax.toFixed(2)}%0A";
-      message += "*Total:* $${invoice.total.toFixed(2)}%0A%0A";
-      message +=
-        "¡Gracias por su compra! Para garantías o soporte técnico, no dude en contactarnos.;";
+      message += `%0A*Subtotal:* $${invoice.subtotal.toFixed(2)}%0A`;
+      message += `*IVA (19%):* $${invoice.tax.toFixed(2)}%0A`;
+      message += `*Total:* $${invoice.total.toFixed(2)}%0A%0A`;
+      message += `¡Gracias por su compra! Para garantías o soporte técnico, no dude en contactarnos.`;
 
-      window.open("https://wa.me/573016173378?text=${message}", "_blank");
+      window.open(`https://wa.me/573016173378?text=${message}`, "_blank");
       clearCart();
       invoiceModal.classList.remove("active");
       overlay.classList.remove("active");
@@ -417,24 +417,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // Enviar factura por email
     sendEmailBtn.addEventListener("click", () => {
       const invoice = generateInvoice();
-      const subject = "Factura ${invoice.invoiceNumber} - JairoTech";
-      let body = "Factura ${invoice.invoiceNumber}%0A%0A";
-      body += "Fecha: ${invoice.invoiceDate}%0A%0A";
-      body += "Detalle de la compra:%0A%0A";
+      const subject = `Factura ${invoice.invoiceNumber} - JairoTech`;
+      let body = `Factura ${invoice.invoiceNumber}%0A%0A`;
+      body += `Fecha: ${invoice.invoiceDate}%0A%0A`;
+      body += `Detalle de la compra:%0A%0A`;
 
       invoice.items.forEach((item) => {
-        body +=
-          "- ${item.name} (${item.quantity} x $${item.price}) = $${(item.price * item.quantity).toFixed(2)}%0A";
+        body += `- ${item.name} (${item.quantity} x $${item.price}) = $${(
+          item.price * item.quantity
+        ).toFixed(2)}%0A`;
       });
 
-      body += "%0ASubtotal: $${invoice.subtotal.toFixed(2)}%0A";
-      body += "IVA (19%): $${invoice.tax.toFixed(2)}%0A";
-      body += "Total: $${invoice.total.toFixed(2)}%0A%0A";
-      body +=
-        "¡Gracias por su compra! Para garantías o soporte técnico, no dude en contactarnos.;";
+      body += `%0ASubtotal: $${invoice.subtotal.toFixed(2)}%0A`;
+      body += `IVA (19%): $${invoice.tax.toFixed(2)}%0A`;
+      body += `Total: $${invoice.total.toFixed(2)}%0A%0A`;
+      body += `¡Gracias por su compra! Para garantías o soporte técnico, no dude en contactarnos.`;
 
       window.open(
-        "mailto:jairosypunto@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}"
+        `mailto:jairosypunto@gmail.com?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`
       );
       clearCart();
       invoiceModal.classList.remove("active");

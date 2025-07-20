@@ -672,3 +672,22 @@ footer {
         display: none;
    }
 }
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .invoice, .invoice * {
+    visibility: visible;
+  }
+  .invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
